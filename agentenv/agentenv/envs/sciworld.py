@@ -837,13 +837,13 @@ class SciworldEnvClient(BaseEnvClient):
     def step(self, action: str) -> StepOutput:
         if action.endswith("</s>"):
             action = action[:-5]
-        try:
-            action = self.adapter_cls.action_parser(action, self.action_format)
-        except Exception as e:
-            print(e, action)
-            return StepOutput(
-                state="Invalid Action.\n\n" + self.observe(), reward=0.0, done=False
-            )
+        # try:
+        #     action = self.adapter_cls.action_parser(action, self.action_format)
+        # except Exception as e:
+        #     print(e, action)
+        #     return StepOutput(
+        #         state="Invalid Action.\n\n" + self.observe(), reward=0.0, done=False
+        #     )
         response = self._post("step", {"action": action})
         self.info = {
             "observation": response["observation"],
