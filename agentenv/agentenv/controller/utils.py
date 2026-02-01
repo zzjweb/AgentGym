@@ -144,17 +144,18 @@ class BaseAdapter:
         thought = _thought.split("Thought:")
         if len(thought) == 1:
             thought = thought[0]
-            invalid_format_flg = True
+            # invalid_format_flg = True
         else:
             thought = thought[1].strip()
         action = _action.strip()
         if invalid_format_flg:
-            print(
-                "The text is not in the correct format. Parsing result may not be accurate."
-            )
-            print("###RAW TEXT:\n", text)
-            print("\n###PARSED THOUGHT:\n", thought)
-            print("\n###PARSED ACTION:\n", action)
+            # print(
+            #     "The text is not in the correct format. Parsing result may not be accurate."
+            # )
+            # print("###RAW TEXT:\n", text)
+            # print("\n###PARSED THOUGHT:\n", thought)
+            # print("\n###PARSED ACTION:\n", action)
+            print(f"### invalid ReAct format detected. {text}")
         return ActionWithTought(thought, action)
 
     @staticmethod

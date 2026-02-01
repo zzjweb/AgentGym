@@ -211,7 +211,7 @@ class WebshopEnvClient(BaseEnvClient):
             action = action[:-5]
         try:
             action = WebshopAdapter.action_parser(action, self.action_format)
-            print(action)
+            # print(action)
         except Exception as e:
             print(e, action)
             return StepOutput(
